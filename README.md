@@ -2,11 +2,11 @@
 
 Given is a file data.txt.
 
-Inside the file you will find balanced lines of comma separated random numbers which you should treat as a grid of numbers. (1000 x 1000 numbers)
+Inside the file you will find balanced lines of comma separated random numbers, which you should treat as a grid of numbers. (1000 x 1000 numbers)
 
-The challenge is to find groups of equal numbers - as this would be to easy we are only searching for groups of 4,6,12,16 elements.
+The challenge is to find groups of equal numbers - as this would be to easy, we are only searching for groups of 4, 6, 12 and 16 elements.
 
-For instance a group with 8 elements will ignored.
+For instance a group with 8 elements should be ignored.
 
 ## Rules
 
@@ -24,13 +24,13 @@ This groups span across multiple lines and columns. They are groups of 6 element
 
 ![](/images/img-red-3-3.png)
 
-This is a group of 9 elements. As we are only searching for groups of 4,6,12,16 this one should be ignored. This implies that this area cannot match anymore as a group of 6 or 4.
+This is a group of 9 elements. As we are only searching for groups of 4, 6 ,12 and 16, this one should be ignored. This implies that this area cannot match anymore as a group of 6 or 4.
 
 ![](/images/img-green-and-red.png)
 
-You could say there is a group of 12 or you say there is a group of 6 and a group of 8. Without having strict rules for this situations there is room for interpretation and we end up in different reusults.
+You could say there is a group of 12 or you say there is a group of 6 and a group of 8. Without having strict rules for this situation, there is room for interpretation and we end up in different results.
 
-So we always process from left to right starting in the upper left corner and going right wins over going down. The result would be a group of 6 and a group of 8 that we ignore.
+So we always proceed from left to right starting in the upper left corner and going right wins over going down. The result would be a group of 6 that we count and a group of 8 that we ignore.
 
 ![](/images/img-blue-box.png)
 
@@ -54,4 +54,4 @@ The string that we are hunting for would be the concatenation of all those numbe
 
 3021 would be the number we are searching for.
 
-Please take your result and post it in our page (link). If you are right you'll get an invitation to our coding kumite in Hamburg.
+Please take your code and create a PullRequest against this repository. If you are right you'll get an invitation to our coding kumite in Hamburg.
