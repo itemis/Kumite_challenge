@@ -54,4 +54,6 @@ The string that we are hunting for would be the concatenation of all those numbe
 
 3021 would be the number we are searching for.
 
-Please take your code and create a PullRequest against this repository. If you are right you'll get an invitation to our coding kumite in Hamburg.
+Please take your code, create a PullRequest against this repository and use your result to get an invitation to the kumite. 
+
+Happy Coding!
