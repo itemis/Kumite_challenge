@@ -23,6 +23,29 @@ class Matrix:
     def count_rectangles(self):
         return [0,0,0,0]
 
+    def find_rectangles(self, rectangles):
+        """searches for rectangles
+
+        - rectangles - list of tuples, each describing a rectangle (sub-matrix)
+
+        Returns: dictionary with found rectangles
+
+        Example:
+
+          found_rectangles = mat.find_rectangles([(2,2), (2,3)])
+
+        """
+        found = { p : 0 for p in rectangles }
+
+        for r in range(self.rows):
+            for c in range(self.cols):
+                for p in rectangles:
+                    if self.test_rectangle_at((r,c), p):
+                        found[p] += 1
+                        self.invalidate((r,c), p)
+
+        return found
+
     def test_rectangle_at(self, (r,c), (height,width)):
         """
         searches for a rectangle at position (r,c) with dimensions (height,width)
