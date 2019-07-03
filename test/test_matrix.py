@@ -3,13 +3,26 @@
 import unittest
 from src import matrix
 
+class TestDimensions(unittest.TestCase):
+    def test_empty(self):
+        mat = matrix.Matrix([])
+        self.assertEqual(mat.cols, 0)
+        self.assertEqual(mat.rows, 0)
+
+    def test_1x1(self):
+        mat = matrix.Matrix([[1]])
+        self.assertEqual(mat.cols, 1)
+        self.assertEqual(mat.rows, 1)
+
+    def test_2x2(self):
+        mat = matrix.Matrix([[1,1], [1,1]])
+        self.assertEqual(mat.cols, 2)
+        self.assertEqual(mat.rows, 2)
+
 
 class TestMatrix(unittest.TestCase):
     def test_empty(self):
         mat = matrix.Matrix([])
-
-        self.assertEqual(mat.cols, 0)
-        self.assertEqual(mat.rows, 0)
 
         self.assertEqual(mat.test_rectangle_at((0,0), (0,0)), True)
         self.assertEqual(mat.test_rectangle_at((0,0), (1,1)), False)
