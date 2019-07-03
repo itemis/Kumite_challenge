@@ -47,7 +47,7 @@ class TestMatrix(unittest.TestCase):
         self.assertEqual(mat.test_rectangle_at((0,0), ((1,3))), False)
         self.assertEqual(mat.test_rectangle_at((0,0), ((1,3))), False)
 
-    def test_invalidate(self):
+    def test_invalidate_1x1_at_0x0(self):
         mat = matrix.Matrix([[1,1,1],
                              [1,1,1],
                              [1,1,1]])
@@ -58,6 +58,7 @@ class TestMatrix(unittest.TestCase):
                                    [1,1,1],
                                    [1,1,1]])
 
+    def test_invalidate_2x2_at_0x0(self):
         mat = matrix.Matrix([[1,1,1],
                              [1,1,1],
                              [1,1,1]])
@@ -68,6 +69,7 @@ class TestMatrix(unittest.TestCase):
                                    [-1,-1,1],
                                    [1,1,1]])
 
+    def test_invalidate_2x2_at_1x1(self):
         mat = matrix.Matrix([[1,1,1],
                              [1,1,1],
                              [1,1,1]])
