@@ -1,7 +1,7 @@
 class Matrix:
     def __init__(self, matrix):
         self._matrix = matrix
-        self._sentinel = -1
+        self._invalid_value = -1
 
     @property
     def rows(self):
