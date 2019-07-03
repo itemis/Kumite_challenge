@@ -2,6 +2,7 @@
 
 import numpy as np
 import sys
+from src import matrix
 
 def main(argv):
     if len(argv) != 2:
@@ -11,7 +12,8 @@ def main(argv):
     try:
         input_file = argv[1]
         file_content = np.genfromtxt(input_file, delimiter=',', dtype=int)
-        found_rectangles = []
+        mat = matrix.Matrix(file_content)
+        found_rectangles = mat.find_rectangles()
 
         print(''.join(map(lambda x: str(x), found_rectangles)))
 
