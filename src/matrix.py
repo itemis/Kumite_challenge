@@ -13,10 +13,14 @@ class Matrix:
             return 0
         return len(self._matrix[0])
 
+    @property
+    def mat(self):
+        return self._matrix
+
     def __str__(self):
         return str(self._matrix)
 
-    def find_rectangles(self):
+    def count_rectangles(self):
         return [0,0,0,0]
 
     def test_rectangle_at(self, (r,c), (height,width)):
@@ -45,3 +49,12 @@ class Matrix:
                     return False
 
         return True
+
+    def invalidate(self, (r,c), (height,width)):
+        """
+        invalidate a rectangle at coordinates (r,c) with dimension (height,width)
+        """
+        for i in range(height):
+            for k in range(width):
+                if r + i < self.rows and c + k < self.cols:
+                    self._matrix[r + i][c + k] = self._invalid_value

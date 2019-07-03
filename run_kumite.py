@@ -13,7 +13,7 @@ def main(argv):
         input_file = argv[1]
         file_content = np.genfromtxt(input_file, delimiter=',', dtype=int)
         mat = matrix.Matrix(file_content)
-        found_rectangles = mat.find_rectangles()
+        found_rectangles = mat.count_rectangles()
 
         print(''.join(map(lambda x: str(x), found_rectangles)))
 
