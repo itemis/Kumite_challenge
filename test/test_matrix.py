@@ -11,7 +11,13 @@ class TestMatrix(unittest.TestCase):
         self.assertEqual(rectangles, expected_rectangles)
 
     def test_empty(self):
-        self._test_found_rectangles([], [0,0,0,0])
+        mat = matrix.Matrix([])
+
+        self.assertEqual(mat.cols, 0)
+        self.assertEqual(mat.rows, 0)
+
+        rectangles = mat.find_rectangles()
+        self.assertEqual(rectangles, [0,0,0,0])
 
 
 if __name__ == '__main__':
