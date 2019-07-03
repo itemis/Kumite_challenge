@@ -51,3 +51,12 @@ Submit your solution by creating a PullRequest against this repository and win a
 
 Happy Coding!
 
+## Running the code
+
+    ./run_kumite.py data.txt
+
+As output you should get `13754331`.
+
+## Testing the code
+
+    python -m unittest discover
