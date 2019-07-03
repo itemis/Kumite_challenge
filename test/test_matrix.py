@@ -5,11 +5,6 @@ from src import matrix
 
 
 class TestMatrix(unittest.TestCase):
-    def _test_found_rectangles(self, given_matrix, expected_rectangles):
-        mat = matrix.Matrix(given_matrix)
-        rectangles = mat.count_rectangles()
-        self.assertEqual(rectangles, expected_rectangles)
-
     def test_empty(self):
         mat = matrix.Matrix([])
 
@@ -81,7 +76,7 @@ class TestMatrix(unittest.TestCase):
         rectangles = mat.find_rectangles([(3,2)])
         self.assertEqual(rectangles, {(3,2): 1})
 
-    def test_example_0200(self):
+    def test_0200(self):
         mat = matrix.Matrix([[1,1,1],
                              [1,1,1],
                              [1,1,0],
@@ -130,6 +125,37 @@ class TestMatrix(unittest.TestCase):
         self.assertEqual(mat.mat, [[1,1,1],
                                    [1,-1,-1],
                                    [1,-1,-1]])
+
+class TestExamples(unittest.TestCase):
+    def test_0100_horizontal(self):
+        mat = matrix.Matrix([[1,1,1],
+                             [1,1,1]])
+        rectangles = mat.count_rectangles()
+        self.assertEqual(rectangles, [0,1,0,0])
+
+    def test_0100_vertical(self):
+        mat = matrix.Matrix([[1,1],
+                             [1,1],
+                             [1,1]])
+        rectangles = mat.count_rectangles()
+        self.assertEqual(rectangles, [0,1,0,0])
+
+    def test_0200(self):
+        mat = matrix.Matrix([[1,1,1],
+                             [1,1,1],
+                             [1,1,0],
+                             [1,1,0],
+                             [1,1,0],
+                             [2,2,2]])
+        rectangles = mat.count_rectangles()
+        self.assertEqual(rectangles, [0,2,0,0])
+
+    def test_no_overlap_2x2(self):
+        mat = matrix.Matrix([[0,1,1],
+                             [1,1,1],
+                             [1,1,3]])
+        rectangles = mat.count_rectangles()
+        self.assertEqual(rectangles, [1,0,0,0])
 
 
 if __name__ == '__main__':

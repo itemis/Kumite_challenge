@@ -21,10 +21,31 @@ class Matrix:
         return str(self._matrix)
 
     def count_rectangles(self):
-        return [0,0,0,0]
+        """
+        Counts number of rectangles of kumite.
+
+        Returns: list of found rectangles, sorted w.r.t. area
+        """
+
+        # prefer cols > rows
+        # prefer larger > smaller
+        rectangles = [
+            (2,8), # 16
+            (2,6), # 12
+            (4,4), # 16
+            (3,4), # 12
+            (4,3), # 12
+            (2,3), # 6
+            (8,2), # 16
+            (6,2), # 12
+            (3,2), # 6
+            (2,2)  # 4
+        ]
+
+        return Matrix.count(self.find_rectangles(rectangles))
 
     def find_rectangles(self, rectangles):
-        """searches for rectangles
+        """searches for rectangles in the given order
 
         - rectangles - list of tuples, each describing a rectangle (sub-matrix)
 
@@ -81,3 +102,25 @@ class Matrix:
             for k in range(width):
                 if r + i < self.rows and c + k < self.cols:
                     self._matrix[r + i][c + k] = self._invalid_value
+
+    @staticmethod
+    def count(rectangles_dict):
+        """count number of rectangles
+        Returns: number of rectangles, sorted w.r.t. area
+        """
+        num = { (r*c):0 for (r,c),val in rectangles_dict.items() }
+
+        # do counting
+        for p, val in rectangles_dict.items():
+            num[p[0]*p[1]] += val
+
+        # convert dictionary to list of tuples
+        num = [(s,v) for s,v in num.items()]
+
+        # sort tuples w.r.t. area (first entry)
+        num.sort(key = lambda x: x[0])
+
+        # omit area
+        num = [v for (s,v) in num]
+
+        return num
